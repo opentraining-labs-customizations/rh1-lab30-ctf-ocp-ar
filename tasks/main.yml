@@ -12,3 +12,4 @@
 - include_tasks: deploy-ghost-deployment.yaml
 - include_tasks: deploy-support_tools-deployment.yaml
 - include_tasks: put_etcd_key.yaml
+- include_tasks: deploy_triwizard_cm.yaml
