@@ -1,12 +1,4 @@
 ---
-- name: Ensure the command completes successfully
-  ansible.builtin.shell: oc get co
-  register: result
-  retries: 10
-  delay: 60
-  until: result.rc == 0
-  ignore_errors: true
-
 - name: Create or update the chronyd MachineConfig for masters
   community.okd.k8s:
     definition:
