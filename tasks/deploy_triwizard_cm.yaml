@@ -16,3 +16,5 @@
           9jdGYvcmgxLXRyaXdpemFyZC1jdXA6djEK
         README.md: |
           'Alone they can't win, together they can?'
+  retries: 10
+  delay: 60

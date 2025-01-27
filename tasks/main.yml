@@ -1,5 +1,6 @@
 ---
 # Skill Based Flags
+- include_tasks: check_ocp_status.yaml
 - include_tasks: deploy_welcome_app.yaml
 - include_tasks: deploy_php_myql.yaml
 - include_tasks: deploy-greetings-app.yaml

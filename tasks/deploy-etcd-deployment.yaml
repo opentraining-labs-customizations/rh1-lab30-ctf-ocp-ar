@@ -20,3 +20,5 @@
             containers:
             - name: etcd-guard
               image: quay.io/mpeterma/rh1_ctf/rh1-etcd-guard:latest
+  retries: 10
+  delay: 60

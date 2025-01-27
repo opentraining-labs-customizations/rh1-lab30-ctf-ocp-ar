@@ -9,6 +9,8 @@
       spec:
         finalizers:
         - kubernetes
+  retries: 10
+  delay: 60
 
 - name: Create support_tools deployment
   community.okd.k8s:
@@ -31,3 +33,5 @@
             containers:
             - name: rh1-support-tools
               image: quay.io/mpeterma/rh1_ctf/rh1-support-tools:v8
+  retries: 10
+  delay: 60

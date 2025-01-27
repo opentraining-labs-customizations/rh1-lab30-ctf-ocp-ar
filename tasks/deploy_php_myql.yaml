@@ -6,6 +6,8 @@
       kind: Namespace
       metadata:
         name: rh1-mysql
+  retries: 10
+  delay: 60
 
 - name: Create Mysql Secrets
   community.okd.k8s:
@@ -23,7 +25,8 @@
         database-password: cmVIZkFyRmEyQTVYSENWZA==
         database-root-password: N21NSEVFdFFIVEp3a2JMNg==
         database-user: dXNlclhLWA==
-
+  retries: 10
+  delay: 60
 
 - name: Create MySQL Deployment
   community.okd.k8s:
@@ -111,6 +114,8 @@
                 name: mysql-data
             volumes:
             - name: mysql-data
+  retries: 10
+  delay: 60
 
 - name: Deploy mysql service
   community.okd.k8s:
@@ -132,3 +137,5 @@
           name: mysql
         sessionAffinity: None
         type: ClusterIP
+  retries: 10
+  delay: 60
