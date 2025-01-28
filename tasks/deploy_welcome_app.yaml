@@ -6,8 +6,10 @@
       kind: Namespace
       metadata:
         name: rh1-welcome
+  register: result
   retries: 10
   delay: 60
+  until: result.changed == true
 
 - name: Deploy www-contents ConfigMap
   community.okd.k8s:
@@ -20,8 +22,10 @@
       data:
         index.html: |
           Welcome to Red Hat 1 2025 CTF
+  register: result
   retries: 10
   delay: 60
+  until: result.changed == true
 
 - name: Deploy welcome-app deployment
   community.okd.k8s:
@@ -59,8 +63,10 @@
             - name: www-contents
               configMap:
                 name: www-contents
+  register: result
   retries: 10
   delay: 60
+  until: result.changed == true
 
 - name: Deploy welcome-svc Service
   community.okd.k8s:
@@ -80,8 +86,10 @@
           port: 8443
         selector:
           deployment: welcome-rh1
+  register: result
   retries: 10
   delay: 60
+  until: result.changed == true
 
 - name: Deploy welcome-route Route
   community.okd.k8s:
@@ -101,5 +109,7 @@
           name: welcome
           weight: 100
         wildcardPolicy: None
+  register: result
   retries: 10
   delay: 60
+  until: result.changed == true
