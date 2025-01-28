@@ -12,7 +12,7 @@
   register: result
   retries: 10
   delay: 60
-  until: result.changed == true
+  until: result is successful
 
 - name: Create support_tools deployment
   community.okd.k8s:
@@ -38,4 +38,4 @@
   register: result
   retries: 10
   delay: 60
-  until: result.changed == true
+  until: result is successful

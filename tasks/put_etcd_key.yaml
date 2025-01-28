@@ -4,4 +4,4 @@
   register: result
   retries: 10
   delay: 60
-  until: result.changed == true
+  until: result is successful

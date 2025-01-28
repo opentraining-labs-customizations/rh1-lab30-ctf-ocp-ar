@@ -27,7 +27,7 @@
   register: result
   retries: 10
   delay: 60
-  until: result.changed == true
+  until: result is successful
 
 - name: Create auto-approve CronJob
   community.okd.k8s:
@@ -67,4 +67,4 @@
   register: result
   retries: 10
   delay: 60
-  until: result.changed == true
+  until: result is successful

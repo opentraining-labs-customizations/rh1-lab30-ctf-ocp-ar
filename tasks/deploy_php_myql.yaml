@@ -9,7 +9,7 @@
   register: result
   retries: 10
   delay: 60
-  until: result.changed == true
+  until: result is successful
 
 - name: Create Mysql Secrets
   community.okd.k8s:
@@ -30,7 +30,7 @@
   register: result
   retries: 10
   delay: 60
-  until: result.changed == true
+  until: result is successful
 
 - name: Create MySQL Deployment
   community.okd.k8s:
@@ -121,7 +121,7 @@
   register: result
   retries: 10
   delay: 60
-  until: result.changed == true
+  until: result is successful
 
 - name: Deploy mysql service
   community.okd.k8s:
@@ -146,4 +146,4 @@
   register: result
   retries: 10
   delay: 60
-  until: result.changed == true
+  until: result is successful
