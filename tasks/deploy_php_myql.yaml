@@ -6,8 +6,10 @@
       kind: Namespace
       metadata:
         name: rh1-mysql
+  register: result
   retries: 10
   delay: 60
+  until: result.changed == true
 
 - name: Create Mysql Secrets
   community.okd.k8s:
@@ -25,8 +27,10 @@
         database-password: cmVIZkFyRmEyQTVYSENWZA==
         database-root-password: N21NSEVFdFFIVEp3a2JMNg==
         database-user: dXNlclhLWA==
+  register: result
   retries: 10
   delay: 60
+  until: result.changed == true
 
 - name: Create MySQL Deployment
   community.okd.k8s:
@@ -114,8 +118,10 @@
                 name: mysql-data
             volumes:
             - name: mysql-data
+  register: result
   retries: 10
   delay: 60
+  until: result.changed == true
 
 - name: Deploy mysql service
   community.okd.k8s:
@@ -137,5 +143,7 @@
           name: mysql
         sessionAffinity: None
         type: ClusterIP
+  register: result
   retries: 10
   delay: 60
+  until: result.changed == true
